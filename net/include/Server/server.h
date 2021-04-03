@@ -4,13 +4,14 @@
 
 #ifndef NETWORKING_SERVER_H
 #define NETWORKING_SERVER_H
-#include <cassert>
 #include <iostream>
 #include <thread>
 #include <unordered_map>
 #include <vector>
+#include <cstring>
 #include <sys/socket.h>
-
+#include <sys/types.h>
+#include <netdb.h>
 
 /**
  * @namespace net
@@ -25,8 +26,8 @@ namespace net
         std::string _address;
     public:
         Server(int32_t port, std::string address);
+        ~Server();
         void start();
     };
-}
 };
 #endif //NETWORKING_SERVER_H
