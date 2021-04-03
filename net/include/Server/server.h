@@ -21,10 +21,12 @@ namespace net
     class Server
     {
     private:
+        int32_t _port;
+        std::string _address;
     public:
         Server(int32_t port, std::string address);
         void start();
     };
 }
-
+};
 #endif //NETWORKING_SERVER_H

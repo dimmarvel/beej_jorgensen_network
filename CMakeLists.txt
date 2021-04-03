@@ -1,17 +1,12 @@
-cmake_minimum_required(VERSION 3.17)
-project(networking)
+cmake_minimum_required( VERSION 3.4.0 )
+project(test CXX )
 
-set(CMAKE_CXX_STANDARD 14)
+set (SOURCE_EXE main.cpp)
 
-set(SOURCE_EXE
-        src/Client/client.cpp
-        src/Server/server.cpp
-        src/network.cpp
-        main.cpp)
+include_directories(net/include) # Расположение заголовочных файлов
 
-set(HEADERS_EXE
-        include/Client/client.h
-        include/Server/server.h
-        include/network.h)
+add_executable(test ${SOURCE_EXE}) # Создает исполняемый файл с именем main
 
-add_executable(networking ${SOURCE_EXE})
+add_subdirectory(net) # Добавление подпроекта, указывается имя дирректории
+
+target_link_libraries(test network) # Линковка программы с библиотекой
